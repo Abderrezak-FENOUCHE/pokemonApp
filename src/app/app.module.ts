@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListPokemonComponent } from './list-pokemon/list-pokemon.component';
+import { ListPokemonComponent } from './pokemons/list-pokemon/list-pokemon.component';
 import { BorderCardDirective } from './shared/directives/border-card.directive';
 import { PokemonTypeColorPipe } from './shared/pipes/pokemin-type-color.pipe';
-import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.component';
+import { DetailPokemonComponent } from './pokemons/detail-pokemon/detail-pokemon.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.componen
     BorderCardDirective,
     PokemonTypeColorPipe,
     DetailPokemonComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
