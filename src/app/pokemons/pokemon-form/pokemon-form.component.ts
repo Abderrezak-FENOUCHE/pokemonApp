@@ -37,10 +37,16 @@ export class PokemonFormComponent implements OnInit {
     }
   }
 
+  goBack(){
+    const link=['pokemon/',this.pokemon.id];
+    this.router.navigate(link);
+  }
+
   onSubmit():void{
     console.log('Submited form !');
-    const link=['/pokemon',this.pokemon.id];
-    this.router.navigate(link);
+    alert("le pokemon a été modifié !")
+    this.pokemonService.updatePokemon(this.pokemon)
+    .subscribe(()=>this.goBack())
 
   }
 

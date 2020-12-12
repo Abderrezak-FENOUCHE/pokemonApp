@@ -17,7 +17,8 @@ export class DetailPokemonComponent implements OnInit {
   
   ngOnInit(): void {
     const id= +this.route.snapshot.paramMap.get('id');
-    this.pokemonToDisplay =this.pokemonService.getSinglePokemon(id);
+    this.pokemonService.getSinglePokemon(id)
+    .subscribe(pkm=>this.pokemonToDisplay=pkm);
   }
   
   retourEnArriere(){
@@ -28,6 +29,17 @@ export class DetailPokemonComponent implements OnInit {
   editerPokemon(id){
     const link=['pokemon/edit/',id];
     this.router.navigate(link);
+  }
+
+  deletePokemon(pok){
+    if(confirm(`Etes vous sur de vouloir supprimer le pokemon: ${pok.name}`)) {
+      this.pokemonService.deletePokemon(pok)
+      .subscribe(()=>{
+        const home=['pokemon'];
+        alert(`le pokemon : ${pok.name} a été supprimé`);
+        this.router.navigate(home);
+      });
+    }
   }
 
 
