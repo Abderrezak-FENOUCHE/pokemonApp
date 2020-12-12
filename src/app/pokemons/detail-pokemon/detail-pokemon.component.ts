@@ -25,5 +25,12 @@ export class DetailPokemonComponent implements OnInit {
     this.router.navigate(home);
   }
 
+  editerPokemon(id){
+    const link=['pokemon/edit/',id];
+    this.router.navigate(link);
+  }
+
+
+
 
 }
